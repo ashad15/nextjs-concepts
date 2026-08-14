@@ -1,17 +1,26 @@
 "use client"
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import useInfiniteScroll from "./hooks/useInfiniteScroll";
 
+function getElementsThatCanFit(heightOfSingleElement: number) {
+    return window.innerHeight / heightOfSingleElement;
+}
+
+function subscribeToResize(callback: () => void) {
+    window.addEventListener("resize", callback);
+    return () => window.removeEventListener("resize", callback);
+}
 
 function InfiniteScroll(){
 
     const heightOfSingleElement = 40;
-    const elemnetsThatCanfit = window.innerHeight / 40;
+    const elemnetsThatCanfit = useSyncExternalStore(
+        subscribeToResize,
+        () => getElementsThatCanFit(heightOfSingleElement),
+        () => 20
+    );
     const lastTenthValueobserver = useRef(null);
-    const valueObserver = new MutationObserver(() => {});
-
-
 
     const {  marginTop, dataToBeRendered, totalItems, updateOriginaldata } = useInfiniteScroll (heightOfSingleElement, elemnetsThatCanfit);
 

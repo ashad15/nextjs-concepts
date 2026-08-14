@@ -1,0 +1,3 @@
+module.exports=[8663,a=>{"use strict";var b=a.i(87924),c=a.i(72131);function d({stateReducer:a,rednerProp:e}){let[f,g]=(0,c.useState)(!1);return(0,b.jsxs)("div",{children:[(0,b.jsx)("h1",{children:"inside the child"}),(0,b.jsxs)("button",{onClick:()=>{g(a(!f))},children:["click Status"," "]}),e(f)]})}a.s(["default",0,function(){return(0,b.jsx)("div",{children:(0,b.jsx)(d,{stateReducer:a=>a,rednerProp:a=>(0,b.jsx)("div",{style:{display:"flex",flexDirection:"column",gap:"12px"},children:(0,b.jsxs)("h1",{children:["this is your render Button ",a]})})})})}])}];
+
+//# sourceMappingURL=app_stateReducer_page_tsx_0jx1033._.js.map

@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,62086,e=>{"use strict";var t=e.i(43476);e.s(["default",0,function(){return(0,t.jsx)("div",{children:(0,t.jsx)("h1",{children:"Here it is the newsroom"})})}])}]);

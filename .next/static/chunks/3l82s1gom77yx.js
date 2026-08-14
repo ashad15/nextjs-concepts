@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,50925,e=>{"use strict";var t=e.i(43476),i=e.i(55487);e.s(["default",0,function(){let e=(0,i.useSelector)(e=>e.heading.someHeading);return(0,t.jsxs)("h1",{children:["ptm page ",e]})}])}]);

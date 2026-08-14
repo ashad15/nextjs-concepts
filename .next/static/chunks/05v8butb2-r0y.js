@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,26041,t=>{"use strict";var e=t.i(43476),i=t.i(71645);t.s(["default",0,function(){let[t,c]=(0,i.useState)(0);return(0,e.jsxs)("div",{onClick:()=>{c(t=>t+1)},children:["counter is ",t]})}])}]);

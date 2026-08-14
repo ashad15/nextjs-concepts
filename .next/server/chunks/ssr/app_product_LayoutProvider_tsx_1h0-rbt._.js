@@ -1,0 +1,3 @@
+module.exports=[24610,a=>{"use strict";var b=a.i(87924),c=a.i(3888),d=a.i(14174);let e=(0,c.createSlice)({name:"ashad",initialState:{someHeading:"ashad"},reducers:{updateHeading:a=>{a.someHeading="newHeading"}}}),f=(0,c.configureStore)({reducer:{heading:e.reducer}});a.s(["LayoutProvider",0,function({children:a}){return(0,b.jsx)(d.Provider,{store:f,children:a})}])}];
+
+//# sourceMappingURL=app_product_LayoutProvider_tsx_1h0-rbt._.js.map

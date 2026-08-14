@@ -26,8 +26,9 @@ export default function useInfiniteScroll(heightOfSingleElement : number, elemne
     const debounceId = useRef(null);
 
     useEffect(() => {
-        window.addEventListener('scroll', onScroll)
-    },[])
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [])
 
     const onScroll = () => {
         if(debounceId?.current){
@@ -44,6 +45,8 @@ export default function useInfiniteScroll(heightOfSingleElement : number, elemne
    
 
     const getAndsetData = () => {
+        if (typeof window === "undefined") return;
+
         let data = dataRef?.current;
        console.log(data);
        if(data === null)return ;

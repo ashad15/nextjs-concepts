@@ -1,10 +1,5 @@
-//
-// Build a minimal observable. createObservable(subscribeFn) where subscribeFn(observer) wires up a source and returns a teardown function. Support .subscribe(observer), .map(fn), and .filter(pred) — each operator returns a new observable. Critically: when the final subscriber unsubscribes, teardown must propagate all the way up the chain so the source (e.g. an interval) is actually cleaned up — no leaks. If there's time, add .debounce(ms).
-
 // ============================================================
-// CANDIDATE STARTER — paste this in, build createObservable.
-// An "observer" is { next(value), error(err), complete() }.
-// subscribeFn(observer) wires up a source and RETURNS a teardown fn.
+// 1. OBSERVABLE
 // ============================================================
 
 type Observer<T> = {
@@ -12,7 +7,9 @@ type Observer<T> = {
   error?: (err: unknown) => void;
   complete?: () => void;
 };
+
 type Teardown = () => void;
+
 type SubscribeFn<T> = (observer: Observer<T>) => Teardown | void;
 
 interface Observable<T> {
@@ -21,50 +18,78 @@ interface Observable<T> {
   filter(predicate: (value: T) => boolean): Observable<T>;
 }
 
-function createObservable<T>(subscribeFn: SubscribeFn<T>): Observable<T> {
+function createObservable<T>(
+  subscribeFn: SubscribeFn<T>
+): Observable<T> {
   return {
-    subscribe(observer) {
-      // TODO: call subscribeFn with the observer, return its teardown.
-      // Guard against a missing teardown and missing error/complete.
-      return () => {subscribeFn(observer)};
+    subscribe(observer: Observer<T>): Teardown {
+      const teardown = subscribeFn(observer);
+
+      return teardown ?? (() => {});
     },
+
     map<U>(fn: (value: T) => U): Observable<U> {
-      // Create a new observable that wraps this one
       return createObservable<U>((observer) => {
-        // Subscribe to the source observable
         return this.subscribe({
           next: (value) => {
             try {
-              // Transform the value and pass to the new observer
               observer.next(fn(value));
             } catch (err) {
-              // If transform fails, forward the error
-              if (observer.error) observer.error(err);
+              observer.error?.(err);
             }
           },
+
           error: (err) => {
-            if (observer.error) observer.error(err);
+            observer.error?.(err);
           },
+
           complete: () => {
-            if (observer.complete) observer.complete();
-          }
+            observer.complete?.();
+          },
         });
       });
     },
-    filter(predicate) {
-      // TODO: return a NEW observable forwarding only values where
-      // predicate(value) is true.
-      return createObservable<T>(() => () => {}); // replace
+
+    filter(
+      predicate: (value: T) => boolean
+    ): Observable<T> {
+      return createObservable<T>((observer) => {
+        return this.subscribe({
+          next: (value) => {
+            try {
+              if (predicate(value)) {
+                observer.next(value);
+              }
+            } catch (err) {
+              observer.error?.(err);
+            }
+          },
+
+          error: (err) => {
+            observer.error?.(err);
+          },
+
+          complete: () => {
+            observer.complete?.();
+          },
+        });
+      });
     },
-    // Stretch: debounce(ms) — emit a value only after ms of quiet.
   };
 }
 
-// ===== Harness — an interval source you can run against =====
+
+// Test Observable
+
 const interval = createObservable<number>((observer) => {
   let i = 0;
-  const id = setInterval(() => observer.next(i++), 100);
+
+  const id = setInterval(() => {
+    observer.next(i++);
+  }, 100);
+
   console.log("source: interval STARTED");
+
   return () => {
     clearInterval(id);
     console.log("source: interval TORN DOWN");
@@ -74,209 +99,250 @@ const interval = createObservable<number>((observer) => {
 const unsub = interval
   .map((x) => x * 2)
   .filter((x) => x % 4 === 0)
-  .subscribe({ next: (x) => console.log("got", x) });
+  .subscribe({
+    next: (x) => console.log("got", x),
+  });
 
-// After 1s we unsubscribe. SUCCESS = you see "interval TORN DOWN"
-// and the "got" logs STOP. If the interval keeps logging, you have a leak.
 setTimeout(unsub, 1000);
 
 
+// ============================================================
+// 2. CUSTOM PROMISE.ALL
+// ============================================================
 
+const customPromiseAll = (
+  promises: Promise<unknown>[]
+): Promise<unknown[]> => {
+  return new Promise((resolve, reject) => {
+    if (promises.length === 0) {
+      resolve([]);
+      return;
+    }
 
+    const results: unknown[] = [];
+    let completed = 0;
 
-const customePromiseAll = (allPromiseArray: unknown[]) => {
-  let solvedPromises = 0;
-  const thenResults: unknown[] = [];
-  const catchResults: unknown[] = [];
+    promises.forEach((promise, index) => {
+      promise
+        .then((value) => {
+          results[index] = value;
+          completed++;
 
-  return new Promise((resAll, rejAll) => {
-    allPromiseArray.forEach((promise, index) => {
-      (promise as Promise<unknown>).then((v: unknown) => {
-        thenResults[index] = v;
-      });
-      (promise as Promise<unknown>).catch((v: unknown) => {
-        catchResults[index] = v;
-      });
-      (promise as Promise<unknown>).finally(() => {
-        solvedPromises++;
-        if (solvedPromises === allPromiseArray.length) {
-          resAll(thenResults);
-        }
-      });
+          if (completed === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch((error: unknown) => {
+          reject(error);
+        });
     });
   });
 };
 
 
+// ============================================================
+// 3. LRU CACHE
+// ============================================================
 
-
-
-
-const customLRUCache = () => {
-  const keysObject: [string, unknown][] = [];
-  const arrayLength = 5;
-  let currentLenght = 0;
+function customLRUCache(capacity: number = 5) {
+  const cache: [string, unknown][] = [];
 
   return {
-    put: function (key: string, value: unknown) {
-      const index = keysObject.findIndex((arr) => arr[0] === key);
+    put(key: string, value: unknown): void {
+      const index = cache.findIndex(
+        ([existingKey]) => existingKey === key
+      );
+
+      // Existing key
       if (index !== -1) {
-        keysObject.splice(index, 1);
-        keysObject.push([key, value]);
-      } else {
-        if (currentLenght < arrayLength) {
-          keysObject.push([key, value]);
-          currentLenght++;
-        } else {
-          keysObject.splice(0, 1);
-          keysObject.push([key, value]);
-        }
+        cache.splice(index, 1);
       }
+
+      // Remove least recently used
+      if (cache.length >= capacity) {
+        cache.shift();
+      }
+
+      cache.push([key, value]);
     },
-    getFunction: function (key: string): unknown {
-      const index = keysObject.findIndex((arr) => arr[0] === key);
-      if (index !== -1) {
-        const oldinfo = keysObject[index];
-        keysObject.splice(index, 1);
-        keysObject.push(oldinfo);
-        return oldinfo[1];
+
+    get(key: string): unknown | undefined {
+      const index = cache.findIndex(
+        ([existingKey]) => existingKey === key
+      );
+
+      if (index === -1) {
+        return undefined;
       }
+
+      const entry = cache[index];
+
+      // Move to most recently used
+      cache.splice(index, 1);
+      cache.push(entry);
+
+      return entry[1];
     },
   };
 };
 
 
+// Example
 
-// Implement begin(), commit(), rollback(), set(k,v), get(k) supporting nested transactions.
-// Example: set(x,1); begin(); set(x,2); begin(); set(x,3); rollback(); get(x)→2; commit(); get(x)→2
-// Use a stack of dicts (one per transaction layer), merge down on commit, pop on rollback.
+const lru = customLRUCache(3);
 
-type stackObj1 =  {[key: string]: (...args: unknown[]) => unknown }| {begin() : void, set(x: string, v:number) : void, rollback(x:string, a:number): void} 
+lru.put("a", 1);
+lru.put("b", 2);
+lru.put("c", 3);
 
-// type stackObj1 = any[] | { 
-//   [key: string]: (...args: any[]) => any;  // Any function
-// };
+console.log(lru.get("a")); // 1
 
-// type stackObj1 = any[] | { 
-//   function(): void;  // ✅ Method that returns void
-// };
+lru.put("d", 4);
 
-// type StackOrTransaction = 
-//     | any[]  // Could be an array
-//     | {      // Or could be a transaction object
-//         begin(): void;
-//         set(x: string, v: number): void;
-//         rollback(): void;
-//         commit(): void;
-//         get(x: string): any;
-//     };
+console.log(lru.get("b")); // undefined
 
-//     // Option A: Interface (recommended for APIs)
-// interface TransactionLayer {
-//   begin(): void;
-//   set(key: string, value: any): void;
-//   get(key: string): any;
-//   rollback(): void;
-//   commit(): void;
-// }
 
-function transactionlayer() : stackObj1{
-  type stackobj = Record<string, unknown>
-  const stackObj = {valuesStack : {}}
-  const transactionArray : stackobj[] = [stackObj]
-  let transactionIndex = 0;
+// ============================================================
+// 4. TRANSACTION
+// ============================================================
+
+interface Transaction {
+  begin(): void;
+  set(key: string, value: number): void;
+  get(key: string): number | undefined;
+  rollback(): void;
+  commit(): void;
+}
+
+function transactionLayer(): Transaction {
+  type Layer = Record<string, number>;
+
+  const stack: Layer[] = [{}];
 
   return {
-      begin : function():void{
-          transactionArray.push(stackObj);
-          transactionIndex ++;
-      },
-      set : function(x:string, v: number){
-              transactionArray[transactionIndex].valuesStack[x] =v; 
-      },
-      rollback : function(x:string, v: number){
-          if(transactionIndex > 0){
-              transactionArray.pop();
-          }
-  },
-      get: function(x:string,){
-          return transactionArray[transactionIndex].valuesStack[x]
-      },
-       commit: function(){
+    begin(): void {
+      stack.push({});
+    },
 
-         if(transactionIndex > 0){
-              transactionArray[transactionIndex-1].valuesStack = Object.assign(transactionArray[transactionIndex-1].valuesStack, transactionArray[transactionIndex].valuesStack);
-              transactionIndex --;
-          }
+    set(key: string, value: number): void {
+      const currentLayer = stack[stack.length - 1];
 
-      },
+      currentLayer[key] = value;
+    },
 
+    get(key: string): number | undefined {
+      // Search from newest transaction to oldest
+      for (let i = stack.length - 1; i >= 0; i--) {
+        if (key in stack[i]) {
+          return stack[i][key];
+        }
+      }
+
+      return undefined;
+    },
+
+    rollback(): void {
+      if (stack.length > 1) {
+        stack.pop();
+      }
+    },
+
+    commit(): void {
+      if (stack.length <= 1) {
+        return;
+      }
+
+      const currentLayer = stack.pop();
+
+      if (!currentLayer) {
+        return;
+      }
+
+      const parentLayer = stack[stack.length - 1];
+
+      Object.assign(parentLayer, currentLayer);
+    },
+  };
 }
-}
 
 
-const transaction = transactionlayer();
+// Example
+
+const transaction = transactionLayer();
+
+transaction.set("x", 1);
+
 transaction.begin();
 
+transaction.set("x", 2);
+
+transaction.begin();
+
+transaction.set("x", 3);
+
+transaction.rollback();
+
+console.log(transaction.get("x")); // 2
+
+transaction.commit();
+
+console.log(transaction.get("x")); // 2
 
 
+// ============================================================
+// 5. SIMPLE EVENT SOCKET
+// ============================================================
 
-function dataScoket (){
-  const callbacks : Record<string, ((...args: unknown[]) => void)[]> = {};  
+type Callback = (...args: unknown[]) => void;
+
+function dataSocket() {
+  const callbacks: Record<string, Callback[]> = {};
 
   return {
-      emit : function(event : string, ...args : unknown[]){
-          if(callbacks[event]){
-              callbacks[event].forEach((cb) => cb(...args))
-          }
-      },
-       on : function(event : string, cb:(val : string) => void){
-          if(callbacks[event]) callbacks[event].push(cb);
-          else callbacks[event] = [cb];
-      },
-  }
+    on(event: string, callback: Callback): void {
+      if (!callbacks[event]) {
+        callbacks[event] = [];
+      }
+
+      callbacks[event].push(callback);
+    },
+
+    emit(event: string, ...args: unknown[]): void {
+      callbacks[event]?.forEach((callback) => {
+        callback(...args);
+      });
+    },
+  };
 }
 
-const socket = dataScoket();
 
-socket.on('print', (value) =>{ console.log(value)});
+// Example
 
-socket.emit('print', 'ashad')
+const socket = dataSocket();
+
+socket.on("print", (value: unknown) => {
+  console.log(value);
+});
+
+socket.emit("print", "ashad");
 
 
+// ============================================================
+// 6. CURRY
+// ============================================================
 
+function curry<T extends unknown[], R>(
+  fn: (...args: T) => R
+) {
+  function curried(...args: unknown[]): unknown {
+    if (args.length >= fn.length) {
+      return fn(...(args as T));
+    }
 
-///
-// Write a generic curry(fn) that works for any arity, and a compose(...fns) / pipe(...fns) utility.
-// Example: curry((a,b,c)=>a+b+c)(1)(2)(3) === 6 and curry(...)(1,2)(3) === 6 (must support partial application in any grouping).
-
-const curryFunction = (cb : (...value : number[]) => void) => {
-  const argsArray : number[] = [];
-
-  const executionFunction = (value : number) => {
-      argsArray.push(value);
-      cb(...argsArray);
-      return executionFunction;
+    return (...nextArgs: unknown[]) => {
+      return curried(...args, ...nextArgs);
+    };
   }
 
-  return executionFunction
-
-
+  return curried;
 }
-
-const curryFunctionExecutor = curryFunction((...args : number[]) => {
-  const sum = args.reduce((a, b) => a+b, 0);
-  console.log(sum);
-})
-curryFunctionExecutor(1);
-curryFunctionExecutor(2);
-curryFunctionExecutor(3);
-
-
-
-
-
-
-
-
-

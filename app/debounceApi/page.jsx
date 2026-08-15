@@ -2,7 +2,7 @@
 
 import useApiHook from "./useApiHook.jsx/useApiHook";
 
-function apiSearch() {
+function ApiSearch() {
   const { data, searchText } = useApiHook("");
 
   return (
@@ -19,4 +19,4 @@ function apiSearch() {
   );
 }
 
-export default apiSearch
+export default ApiSearch

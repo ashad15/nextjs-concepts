@@ -45,7 +45,7 @@ function InfiniteScroll(){
         <h2>hey there</h2>
         <div style={{paddingTop : `${marginTop}px`, height : `${totalItems * 40}px`, boxSizing : 'border-box'}}>
             {dataToBeRendered.map((data, index) => {
-                return(<div ref={index === (dataToBeRendered.length - 11) ?lastTenthValueobserver : null }>
+                return(<div key={`${data.name}-${index}`} ref={index === (dataToBeRendered.length - 11) ?lastTenthValueobserver : null }>
                     <h1>{data.name}</h1>
                     <p>{data.desc}</p>
                 </div>)

@@ -14,62 +14,55 @@ export default function useInfiniteScroll(heightOfSingleElement : number, elemne
 
 
     const updateOriginaldata = () =>{
-        let copy = JSON.parse(JSON.stringify(getConstUserData))
+        const copy = JSON.parse(JSON.stringify(getConstUserData))
         setData(prev => [...prev, ...copy]);
     }
 
     const [data, setData] = useState(getConstUserData);
     const [marginTop, setMarginTop] = useState<number>(0);
     const [dataToBeRendered, setDataToBeRendered] = useState<dataType[]>(getConstUserData);
-    const dataRef = useRef<null | any[]>(null);
-    dataRef.current = data;
-    const debounceId = useRef(null);
+    const dataRef = useRef<dataType[]>(getConstUserData);
+    const debounceId = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, [])
+        dataRef.current = data;
+    }, [data]);
 
-    const onScroll = () => {
-        if(debounceId?.current){
-            clearTimeout(debounceId.current);
-        }
-        else{
-            setTimeout(() => {
+    useEffect(() => {
+        const getAndsetData = () => {
+            if (typeof window === "undefined") return;
+
+            const currentData = dataRef.current;
+            if(!currentData.length) return;
+
+            const offSetTop = Math.ceil(window.pageYOffset);
+            let startingIndex = 0;
+            let endindex = startingIndex + elemnetsThatCanfit;
+            if(offSetTop > 0){
+                const skippedlement = Math.floor(offSetTop / heightOfSingleElement);
+                if(skippedlement > 20 ){
+                    startingIndex = skippedlement - 20;
+                }
+                const expectedEndIndex = skippedlement + elemnetsThatCanfit + 20;
+                endindex = expectedEndIndex <= currentData.length - 1 ? expectedEndIndex : currentData.length - 1;
+            }
+            const visibleArray = currentData.slice(startingIndex, endindex);
+            setDataToBeRendered(visibleArray);
+            setMarginTop(startingIndex * heightOfSingleElement);
+        };
+
+        const onScroll = () => {
+            if(debounceId.current){
+                clearTimeout(debounceId.current);
+            }
+            debounceId.current = setTimeout(() => {
                 getAndsetData();
             }, 100);
-        }
-    }
+        };
 
-
-   
-
-    const getAndsetData = () => {
-        if (typeof window === "undefined") return;
-
-        let data = dataRef?.current;
-       console.log(data);
-       if(data === null)return ;
-        if(data.length){
-           
-            let offSetTop = Math.ceil(window.pageYOffset) ;
-            let startingIndex = 0;
-             let endindex = startingIndex + elemnetsThatCanfit;
-           if(offSetTop > 0){
-            let skippedlement = Math.floor(offSetTop / heightOfSingleElement) 
-            if(skippedlement > 20 ){
-                 startingIndex = skippedlement - 20 ;
-
-            }
-            let expectedEndIndex = skippedlement + elemnetsThatCanfit + 20
-            endindex = expectedEndIndex <= data.length - 1 ? expectedEndIndex : data.length - 1
-           }
-           let visibleArray = data.slice(startingIndex, endindex);
-           setDataToBeRendered(visibleArray);
-           setMarginTop(startingIndex * heightOfSingleElement);
-        }
-
-    }  
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [heightOfSingleElement, elemnetsThatCanfit]);
     
     return {marginTop, dataToBeRendered, totalItems :data?.length, updateOriginaldata }
 

@@ -84,20 +84,20 @@ setTimeout(unsub, 1000);
 
 
 
-const customePromiseAll = (allPromiseArray: any[]) => {
+const customePromiseAll = (allPromiseArray: unknown[]) => {
   let solvedPromises = 0;
-  let thenResults: any[] = [];
-  let catchResults: any[] = [];
+  const thenResults: unknown[] = [];
+  const catchResults: unknown[] = [];
 
   return new Promise((resAll, rejAll) => {
     allPromiseArray.forEach((promise, index) => {
-      let result = promise.then((v: any) => {
+      (promise as Promise<unknown>).then((v: unknown) => {
         thenResults[index] = v;
       });
-      let catchResult = promise.catch((v: any) => {
+      (promise as Promise<unknown>).catch((v: unknown) => {
         catchResults[index] = v;
       });
-      promise.finally(() => {
+      (promise as Promise<unknown>).finally(() => {
         solvedPromises++;
         if (solvedPromises === allPromiseArray.length) {
           resAll(thenResults);
@@ -113,13 +113,13 @@ const customePromiseAll = (allPromiseArray: any[]) => {
 
 
 const customLRUCache = () => {
-  let keysObject: [string, any][] = [];
-  let arrayLength = 5;
+  const keysObject: [string, unknown][] = [];
+  const arrayLength = 5;
   let currentLenght = 0;
 
   return {
-    put: function (key: string, value: any) {
-      let index = keysObject.findIndex((arr) => arr[0] === key);
+    put: function (key: string, value: unknown) {
+      const index = keysObject.findIndex((arr) => arr[0] === key);
       if (index !== -1) {
         keysObject.splice(index, 1);
         keysObject.push([key, value]);
@@ -133,10 +133,10 @@ const customLRUCache = () => {
         }
       }
     },
-    getFunction: function (key: string): any {
-      let index = keysObject.findIndex((arr) => arr[0] === key);
+    getFunction: function (key: string): unknown {
+      const index = keysObject.findIndex((arr) => arr[0] === key);
       if (index !== -1) {
-        let oldinfo = keysObject[index];
+        const oldinfo = keysObject[index];
         keysObject.splice(index, 1);
         keysObject.push(oldinfo);
         return oldinfo[1];
@@ -151,7 +151,7 @@ const customLRUCache = () => {
 // Example: set(x,1); begin(); set(x,2); begin(); set(x,3); rollback(); get(x)→2; commit(); get(x)→2
 // Use a stack of dicts (one per transaction layer), merge down on commit, pop on rollback.
 
-type stackObj1 =  {[key: string]: (...args: any[]) => any }| {begin() : void, set(x: string, v:number) : void, rollback(x:string, a:number): void} 
+type stackObj1 =  {[key: string]: (...args: unknown[]) => unknown }| {begin() : void, set(x: string, v:number) : void, rollback(x:string, a:number): void} 
 
 // type stackObj1 = any[] | { 
 //   [key: string]: (...args: any[]) => any;  // Any function
@@ -181,9 +181,9 @@ type stackObj1 =  {[key: string]: (...args: any[]) => any }| {begin() : void, se
 // }
 
 function transactionlayer() : stackObj1{
-  type stackobj = Record<string, any>
-  let stackObj = {valuesStack : {}}
-  let transactionArray : stackobj[] = [stackObj]
+  type stackobj = Record<string, unknown>
+  const stackObj = {valuesStack : {}}
+  const transactionArray : stackobj[] = [stackObj]
   let transactionIndex = 0;
 
   return {
@@ -222,10 +222,10 @@ transaction.begin();
 
 
 function dataScoket (){
-  const callbacks : Record<string, any[]> = {};  
+  const callbacks : Record<string, ((...args: unknown[]) => void)[]> = {};  
 
   return {
-      emit : function(event : string, ...args : any[]){
+      emit : function(event : string, ...args : unknown[]){
           if(callbacks[event]){
               callbacks[event].forEach((cb) => cb(...args))
           }
@@ -264,8 +264,8 @@ const curryFunction = (cb : (...value : number[]) => void) => {
 
 }
 
-let curryFunctionExecutor = curryFunction((...args : number[]) => {
-  let sum = args.reduce((a, b) => a+b, 0);
+const curryFunctionExecutor = curryFunction((...args : number[]) => {
+  const sum = args.reduce((a, b) => a+b, 0);
   console.log(sum);
 })
 curryFunctionExecutor(1);

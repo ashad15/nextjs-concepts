@@ -1,30 +1,31 @@
 "use client"
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { SOCKET_EMIT_TYPES } from "./constants/SocketConst";
 import useSocketHook from "./hooks/useSocketHook";
 import { SOCKET_DATA, SOCKET_MSG } from "./types/SocketTypes";
 
 export default function NotificationSystem() {
-  const { emitSocketMsg } = useSocketHook(onSocketResponse);
-  const [notifications, setNotification] = useState<Record<number, any>>({});
+  const [notifications, setNotification] = useState<Record<number, SOCKET_DATA>>({});
 
-  function onSocketResponse(type: SOCKET_MSG, value: SOCKET_DATA) {
-    console.log('111231')
-    let hash = Date.now();
+  const onSocketResponse = useCallback((type: SOCKET_MSG, value: SOCKET_DATA) => {
+    console.log('111231', type)
+    const hash = Date.now();
     setNotification((prev) => {
       return { ...prev, [hash]: value };
     });
-    let timeoutid = setTimeout(() => {
+    const timeoutid = setTimeout(() => {
       clearTimeout(timeoutid);
       setNotification((prev) => {
         console.log('dee', hash, prev)
-        let old = structuredClone(prev);
+        const old = structuredClone(prev);
         delete old[hash];
         return old;
       });
     }, 3000);
-  }
+  }, []);
+
+  const { emitSocketMsg } = useSocketHook(onSocketResponse);
 
   const emitSomeMsg = () => {
     const random = Math.floor(Math.random() * SOCKET_EMIT_TYPES.length);
@@ -46,10 +47,10 @@ export default function NotificationSystem() {
         }}
       >
         {notifications && Object.keys(notifications)?.length
-          ? Object.values(notifications).map((value) => {
+          ? Object.entries(notifications).map(([id, value]) => {
               return (
-                <div style={{ padding: "20px", border: "1px solid greed" }}>
-                  {value}
+                <div key={id} style={{ padding: "20px", border: "1px solid greed" }}>
+                  {String(value)}
                 </div>
               );
             })

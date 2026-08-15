@@ -7,7 +7,7 @@ import { HomeContext } from '@/store/context/HomeContext';
 
 export default function  Page (){
 
-    let [value, setValue] = useState(0);
+    const [value, setValue] = useState(0);
 
     const context = useContext(HomeContext)
     console.log(context);

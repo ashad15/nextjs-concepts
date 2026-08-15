@@ -1,15 +1,25 @@
 
 "use client"
+
 const styles = {
   cardAction: {},
   cardDetails: {},
+};
+
+type TreeItem = {
+  expanded: boolean;
+  type: "folder" | "file";
+  name: string;
+  desc: string;
+  hash: string;
+  child?: Record<string, TreeItem>;
 };
 
 export function FileCard({
   treeItem,
   addFolder,
 }: {
-  treeItem: any;
+  treeItem: TreeItem;
   addFolder: (callingHash: string, name :string, desc: string ) => void;
 }) {
   console.log(treeItem);

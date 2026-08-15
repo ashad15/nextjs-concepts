@@ -4,7 +4,7 @@ import React from "react";
 import { FileCard } from "./hooks/components/fileCard";
 import { useFileExplorer } from "./hooks/useFileExplorer";
 
-export default function fileExplorerRender() {
+export default function FileExplorerPage() {
   const { addFolder, filesTree } = useFileExplorer();
 
   const renderFileTree = (fileTree = {}) => {

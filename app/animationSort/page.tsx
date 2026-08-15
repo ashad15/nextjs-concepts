@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ButtonComponent } from "design-system";  
 
-export default function animationSort() {
+export default function AnimationSort() {
   const [iniitalArr, setInitialArr] = useState([1, 4, 2, 6, 3]);
   const [lastSavedState, setLastSavedState] = useState(iniitalArr);
   const [setimeOutInterval, setSetTimeoutInterVal] = useState(1000);
@@ -23,7 +23,7 @@ export default function animationSort() {
         if(unsorted[rightIndex] !== undefined){
             while(leftIndex >= 0 && unsorted[rightIndex] < unsorted[leftIndex]){
                 console.log('aa')
-                let temp = unsorted[leftIndex];
+                const temp = unsorted[leftIndex];
                 unsorted[leftIndex] = unsorted[rightIndex];
                 unsorted[rightIndex]  = temp;
                 setInitialArr([...unsorted]);
@@ -52,6 +52,7 @@ export default function animationSort() {
         <div style={{ display: "flex", gap: "32px", alignItems : 'self-end', minHeight: "500px" }}>
           {lastSavedState?.map((eachArrayItem) => (
             <div
+              key={eachArrayItem}
               style={{
                 height: `${eachArrayItem * 10}px`,
                 background: "purple",

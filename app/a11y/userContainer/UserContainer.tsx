@@ -3,7 +3,10 @@
 import { useState, ReactNode, createContext, useContext } from "react";
 import Modal from "../modal/Modal";
 
-type contextType = Record<string, any>;
+type contextType = {
+  setCurrentSelectedUser: (user: Record<string, string> | null) => void;
+  currentSelectedUser: Record<string, string> | null;
+};
 
 export const UserContainerContext = createContext<contextType | null>(null);
 
@@ -30,7 +33,7 @@ const UserCard = function ({ user }: { user: Record<string, string> }) {
 const UserContainer: UserContainerType = Object.assign(
   function ({ children }: { children: ReactNode }) {
     const [currentSelectedUser, setCurrentSelectedUser] =
-      useState<null | Record<any, any>>(null);
+      useState<Record<string, string> | null>(null);
 
     return (
       <div>

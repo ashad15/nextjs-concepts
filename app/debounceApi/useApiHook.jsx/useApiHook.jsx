@@ -1,32 +1,20 @@
 "use client"
 
+import { useRef, useState } from "react";
 
-
-
-
-const { useRef, useState } = require("react");
-
-
-
-
-
-function useApiHook(initialSearchTerm = ''){
-
-    const searchData = useState();
-    const abortSignalRef = useRef();
-    const setTimeOutID = useRef(null);
+function useApiHook() {
+    const abortSignalRef = useRef(null);
+    const setTimeOutIDRef = useRef(null);
     const [data, setData] = useState(null);
-    const searchString = useRef('')
+    const searchStringRef = useRef('')
 
     const searchText = (string) => {
-        searchString.current = string
-        //console.log(string, setTimeOutID)
-        if(setTimeOutID?.current){
-            clearTimeout(setTimeOutID?.current);
+        searchStringRef.current = string
+        if(setTimeOutIDRef.current){
+            clearTimeout(setTimeOutIDRef.current);
         }
             const id = setTimeout(async() => {
                 const abortCon = new AbortController();
-               // console.log('aa', abortSignalRef)
                 if(abortSignalRef.current){
                     console.log(
                         "Before abort:",
@@ -44,10 +32,11 @@ function useApiHook(initialSearchTerm = ''){
                 abortSignalRef.current = abortCon;
                 const signal = abortCon?.signal
                
-                setTimeOutID.current = null;
+                setTimeOutIDRef.current = null;
                 try{
-                    let data = await fetch(`https://jsonplaceholder.typicode.com/todos/10?string=${searchString?.current}`, {signal});
-                    setData(data);
+                    const response = await fetch(`https://jsonplaceholder.typicode.com/todos/10?string=${searchStringRef.current}`, {signal});
+                    const responseData = await response.json();
+                    setData(responseData);
                 }
                 catch(e){
                     console.log(e)
@@ -55,7 +44,7 @@ function useApiHook(initialSearchTerm = ''){
                 abortSignalRef.current  = null
                 
             }, 3000);
-            setTimeOutID.current = id
+            setTimeOutIDRef.current = id
 
 
     }

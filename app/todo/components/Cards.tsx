@@ -8,7 +8,7 @@ function ExpiredCards({cards, onDragStart, onDragStop}: {cards : cardArray, onDr
     onDrop={onDragStop} style={{border : '1px solid', padding :'12px'}}>
       {cards.map((card: cardInfoType) => {
         return (
-            <div draggable  onDragStart={(e) => {onDragStart(e)}} style={{border : '1px solid', padding :'12px'}}>
+            <div key={card.name} draggable  onDragStart={(e) => {onDragStart(e)}} style={{border : '1px solid', padding :'12px'}}>
             <h1>{card.name}</h1>
             <p>{card.desc}</p>
           </div>
@@ -24,7 +24,7 @@ function OngoingCard({cards, onDragStart, onDragStop}: {cards : cardArray, onDra
      onDrop={onDragStop} style={{border : '1px solid', padding :'12px'}}>
       {cards.map((card: cardInfoType) => {
         return (
-            <div id= 'asasdad' draggable  onDragStart={(e) => {onDragStart(e)}} style={{border : '1px solid', padding :'12px'}}>
+            <div key={card.name} id= 'asasdad' draggable  onDragStart={(e) => {onDragStart(e)}} style={{border : '1px solid', padding :'12px'}}>
             <h1>{card.name}</h1>
             <p>{card.desc}</p>
           </div>
@@ -40,7 +40,7 @@ function CompletedCard({cards, onDragStart, onDragStop}: {cards : cardArray, onD
     onDrop={onDragStop} style={{border : '1px solid', padding :'12px'}}>
       {cards.map((card: cardInfoType) => {
         return (
-            <div draggable  onDragStart={(e) => {onDragStart(e)}} style={{border : '1px solid', padding :'12px'}}>
+            <div key={card.name} draggable  onDragStart={(e) => {onDragStart(e)}} style={{border : '1px solid', padding :'12px'}}>
             <h1>{card.name}</h1>
             <p>{card.desc}</p>
           </div>
@@ -59,7 +59,7 @@ function CardsContainer({children}: {children : React.ReactNode}) {
   );
 }
 
-let Cards = Object.assign(CardsContainer, {
+const Cards = Object.assign(CardsContainer, {
   CompletedCard,
   OngoingCard,
   ExpiredCards,

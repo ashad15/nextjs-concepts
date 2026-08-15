@@ -840,7 +840,7 @@ const promiseClass = new concurrentArray(promiseArray, 5);
 promiseClass.execute();
 
 
-const deepClone(obj, weakMap = new weakMap()){
+const deepClone = (obj, weakMap = new WeakMap()) => {
   if (obj === null || typeof obj !== 'object') return obj; 
   
   if(weakMap.has(obj))return weakMap.get(obj)

@@ -18,10 +18,10 @@ export function useFileExplorer() {
   const [filesTree, setFileTree] = useState<Record<string, fileDetails>>({});
 
   const addFolder = (callingHash: string, name = "aaa", desc = "abc") => {
-    let timeHash = Date.now();
+    const timeHash = Date.now();
     if (callingHash) {
-      let newHashMade = callingHash + `--${timeHash}`;
-      let newItem: fileDetails = {
+      const newHashMade = callingHash + `--${timeHash}`;
+      const newItem: fileDetails = {
         name,
         desc,
         expanded: true,
@@ -29,11 +29,11 @@ export function useFileExplorer() {
         hash: newHashMade,
         child: {},
       };
-      let treeArray = callingHash.split("--");
+      const treeArray = callingHash.split("--");
       const clonedTree = structuredClone(filesTree);
       let item = clonedTree;
       let locationNotFound = false;
-      for (let location of treeArray) {
+      for (const location of treeArray) {
         if (item[location]) {
           item = item[location]?.child;
         } else {
@@ -46,7 +46,7 @@ export function useFileExplorer() {
       }
       setFileTree(clonedTree);
     } else {
-      let newItem: fileDetails = {
+      const newItem: fileDetails = {
         name,
         desc,
         expanded: true,

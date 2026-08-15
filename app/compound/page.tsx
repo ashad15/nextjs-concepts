@@ -2,7 +2,7 @@
 
 import Tabs from "./TabList";
 
-export default function () {
+export default function CompoundPage() {
     console.log(Tabs);
   return (
     <div>

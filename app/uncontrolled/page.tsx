@@ -6,7 +6,7 @@ const Uncontrolled = () => {
 
     const divref = useRef<HTMLDivElement | null>(null)
   
-    let count = 1;
+    const count = 1;
 
     
 

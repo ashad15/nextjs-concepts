@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 type ContextType = {
   hasAccess: boolean;
@@ -10,39 +10,15 @@ const PTMPage = () => <div>dashboard</div>;
 const TenurePage = () => <div>dashboard</div>;
 const HighLightsPage = () => <div>Highlights Page</div>;
 
-const checkFeatureAccess = (Component: React.ComponentType, type: string) => {
-  return () => {
-    const contextInfo = useContext(AccessContext);
-    let hasAcccess = true;
-    return <>{hasAcccess ? <Component /> : null}</>; // later we'll use contextInfo which cam in initial api and then get feature has acccess or not
-  };
-};
+function FeatureGate({ Component }: { Component: React.ComponentType }) {
+  const contextInfo = useContext(AccessContext);
+  const hasAccess = contextInfo?.hasAccess ?? true;
+  return hasAccess ? <Component /> : null;
+}
 
-const ProtectedRoute = ({
-  Component,
-  type,
-}: {
-  Component: React.ComponentType;
-  type: string;
-}) => {
-  const AccessFeatureaComponent = checkFeatureAccess(Component, type);
-  return (
-    <div>
-      <AccessFeatureaComponent />
-    </div>
-  );
-};
-
-const withAccess = ({ children }: { children: React.ReactNode }) => {
-  const [hasAccess, setHasAccess] = useState(false);
-  const [type, setType] = useState("");
-  useEffect(() => {
-    if (true) {
-      //todo coniditon set manually
-      setHasAccess(true);
-      setType("ptm");
-    }
-  }, []);
+function WithAccess({ children }: { children: React.ReactNode }) {
+  const [hasAccess] = useState(true);
+  const [type] = useState("ptm");
 
   return (
     <>
@@ -50,13 +26,13 @@ const withAccess = ({ children }: { children: React.ReactNode }) => {
         <>
           <AccessContext.Provider value={{ hasAccess: hasAccess }}>
             {type === "ptm" ? (
-              <ProtectedRoute Component={PTMPage} type={type} />
+              <FeatureGate Component={PTMPage} />
             ) : null}
             {type === "tenure" ? (
-              <ProtectedRoute Component={TenurePage} type={type} />
+              <FeatureGate Component={TenurePage} />
             ) : null}
             {type === "highlights" ? (
-              <ProtectedRoute Component={HighLightsPage} type={type} />
+              <FeatureGate Component={HighLightsPage} />
             ) : null}
             {children}
           </AccessContext.Provider>
@@ -64,6 +40,6 @@ const withAccess = ({ children }: { children: React.ReactNode }) => {
       ) : null}
     </>
   );
-};
+}
 
-export default withAccess;
+export default WithAccess;

@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux"
 import { headingStateType } from "../LayoutProvider"
 
-export default function (){
+export default function PtmPage(){
 
     const heading = useSelector((state : headingStateType) => {return state.heading.someHeading})
 

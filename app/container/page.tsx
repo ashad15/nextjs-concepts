@@ -1,6 +1,6 @@
 import { ITEMS } from "./items";
 
-export default function () {
+export default function ContainerPage() {
   return (
     <>
       {ITEMS.map((element, index) => {

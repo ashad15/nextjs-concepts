@@ -14,8 +14,8 @@ function StateReducer({
   const [toggleOpen, setToggleOpen] = useState(false);
 
   const onToggleChange = (value: boolean) => {
-    let nextState = !value;
-    let newValue = stateReducer(nextState);
+    const nextState = !value;
+    const newValue = stateReducer(nextState);
     setToggleOpen(newValue);
   };
 

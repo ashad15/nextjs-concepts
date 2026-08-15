@@ -8,7 +8,7 @@ export function useHover<T extends HTMLElement>(): [Ref<T>, boolean] {
 
   useEffect(() => {
     if(ref.current){
-      let element = ref.current;
+      const element = ref.current;
       element.addEventListener('onMouseEnter', () => { setIsHovering(true)});
       element.addEventListener('onMouseLeave',  () => { setIsHovering(false)});
 

@@ -1,41 +1,33 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { CARDS_TYPES, defaultCards } from "../constants/const";
 
 export default function useGetCards() {
-  const [allCards, setAllCards] = useState(defaultCards);
-  const [cardsSplit, setCardsSplit] = useState<Record<string, cardInfoType[]>>(
-    {},
-  );
+  const allCards = defaultCards;
 
-  useEffect(() => {
-    console.log("aa");
-    splitCards();
-  }, [allCards]);
-
-  const splitCards = () => {
-    let cardsSplit: Record<any, any> = {
+  const cardsSplit = useMemo(() => {
+    const splitCards: Record<string, cardInfoType[]> = {
       [CARDS_TYPES?.ONGOING]: [],
       [CARDS_TYPES?.COMPLETED]: [],
       [CARDS_TYPES?.EXPIRED]: [],
     };
 
     if (allCards && Object.entries(allCards)?.length) {
-      Object.entries(allCards).forEach(([id, card]) => {
+      Object.entries(allCards).forEach(([, card]) => {
         if (card?.type === CARDS_TYPES?.ONGOING) {
-          cardsSplit[CARDS_TYPES?.ONGOING].push(card);
+          splitCards[CARDS_TYPES?.ONGOING].push(card);
         }
         if (card?.type === CARDS_TYPES?.EXPIRED) {
-          cardsSplit[CARDS_TYPES?.EXPIRED].push(card);
+          splitCards[CARDS_TYPES?.EXPIRED].push(card);
         }
         if (card?.type === CARDS_TYPES?.COMPLETED) {
-          cardsSplit[CARDS_TYPES?.COMPLETED].push(card);
+          splitCards[CARDS_TYPES?.COMPLETED].push(card);
         }
       });
     }
 
-    setCardsSplit(cardsSplit);
-  };
+    return splitCards;
+  }, [allCards]);
 
   const onDragStart = (e: React.DragEvent<HTMLDivElement>) => {
    //console.log(e);

@@ -8,21 +8,21 @@ export default function UserCards() {
 
   const { data, loading, err } = useFetchhook(searchQuery);
 
-  let querString = ["ash", "404", "am"];
+  const querString = ["ash", "404", "am"];
 
   const itemIndex = useRef(1);
 
   useEffect(() => {
+    function getItems() {
+      setTimeout(() => {
+        setSearchQuery(querString[itemIndex?.current]);
+        itemIndex.current = itemIndex.current + 1;
+        getItems();
+      }, 6000);
+    }
+
     getItems();
   }, []);
-
-  function getItems() {
-    setTimeout(() => {
-      setSearchQuery(querString[itemIndex?.current]);
-      itemIndex.current = itemIndex.current + 1;
-      getItems();
-    }, 6000);
-  }
 
   return (
     <div style={{ background: "grey" }}>
@@ -41,15 +41,15 @@ export default function UserCards() {
             {" "}
             loading ...
           </div>
-        ) : err?.message ? (
+        ) : err ? (
           <div style={{ padding: "20px", width: "300px", height: "300px" }}>
             {" "}
             {err.message}
           </div>
         ) : (
           <>
-            {data.map((item, index) => (
-              <div style={{ padding: "20px", width: "300px", height: "300px" }}>
+            {data.map((item) => (
+              <div key={item} style={{ padding: "20px", width: "300px", height: "300px" }}>
                 {" "}
                 {item}
               </div>

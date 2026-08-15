@@ -5,7 +5,7 @@ import {useState } from 'react';
 
 export default function  Page (){
 
-    let [value, setValue] = useState(0);
+    const [value, setValue] = useState(0);
 
     return(
         <div>

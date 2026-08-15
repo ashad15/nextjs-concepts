@@ -104,3 +104,5 @@ jobs:
         run: npm run lint
       - name: TypeScript type check
         run: npm run type-check
+      - name: Build application
+        run: npm run build

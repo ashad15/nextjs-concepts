@@ -1,0 +1,104 @@
+# --------------------------------------------------
+# Name of the GitHub Actions workflow
+# This is the name you'll see in the GitHub Actions UI.
+# --------------------------------------------------
+name: Frontend CI
+
+
+# --------------------------------------------------
+# WHEN should this workflow run?
+# --------------------------------------------------
+on:
+
+  # Run CI whenever code is pushed to the master branch.
+  push:
+    branches:
+      - master
+
+  # Also run CI whenever a Pull Request targets master.
+  # This allows us to catch problems BEFORE merging.
+  pull_request:
+    branches:
+      - master
+
+
+# --------------------------------------------------
+# WHAT work should GitHub Actions perform?
+# --------------------------------------------------
+jobs:
+
+  # Name of this job.
+  # We are calling it "lint" because its main responsibility
+  # is to run ESLint.
+  lint:
+
+    # GitHub will create a temporary Ubuntu machine
+    # to execute this job.
+    runs-on: ubuntu-latest
+
+
+    # --------------------------------------------------
+    # Steps are executed sequentially from top to bottom.
+    # --------------------------------------------------
+    steps:
+
+      # ------------------------------------------------
+      # STEP 1: Checkout our GitHub repository
+      #
+      # The GitHub runner starts as a clean machine.
+      # It doesn't automatically contain our project.
+      #
+      # checkout downloads/checks out our repository
+      # into the runner.
+      # ------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      # ------------------------------------------------
+      # STEP 2: Install/configure Node.js
+      #
+      # Our project is a Next.js application, so we need
+      # Node.js to run npm commands.
+      #
+      # We are using Node.js 20 for this CI environment.
+      # ------------------------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+
+      # ------------------------------------------------
+      # STEP 3: Install dependencies
+      #
+      # npm ci installs dependencies using package-lock.json.
+      #
+      # CI generally uses "npm ci" instead of "npm install"
+      # because we want a clean and reproducible installation.
+      #
+      # This creates node_modules on the temporary
+      # GitHub runner.
+      # ------------------------------------------------
+      - name: Install dependencies
+        run: npm ci
+
+
+      # ------------------------------------------------
+      # STEP 4: Run ESLint
+      #
+      # Your package.json contains:
+      #
+      # "lint": "eslint"
+      #
+      # Therefore:
+      #
+      # npm run lint
+      #
+      # executes ESLint against the project.
+      #
+      # If ESLint succeeds → job passes.
+      # If ESLint finds errors → job fails.
+      # ------------------------------------------------
+      - name: Run ESLint
+        run: npm run lint

@@ -1,0 +1,1650 @@
+{
+  "target": {
+    "cap_id": "IQ875817",
+    "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ875817",
+    "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+    "Company Name": "Capgemini SE",
+    "Exchange:Ticker": "ENXTPA:CAP",
+    "Year": "LTM22025",
+    "Region": "EMEA",
+    "Exchange Country/Region": "France",
+    "Company Type": "Public Company",
+    "Company Status": "Operating",
+    "Inclusion": "Included at EBIT Level",
+    "Bain Industry": "Tech",
+    "Bain Sector": "Tech Services",
+    "Primary Sector": "Information Technology",
+    "Primary Industry": "IT Consulting and Other Services",
+    "Revenue": 22065,
+    "revenue_size": 4.343703931783211,
+    "gross_margin": 0.2725583503285747,
+    "ebitda_margin": 0.129299796057104,
+    "operating_margin": 0.11130750056650804,
+    "research_and_development_intensity": 0,
+    "depreciation_intensity": 0,
+    "accounts_receivable_days": 85.47269431225924,
+    "accounts_payable_days": 96.37218864868234,
+    "inventory_days": null,
+    "revenue_growth_rate": 0.0070726900693485195,
+    "leverage": 1.3887136347704172
+  },
+  "count": 16,
+  "agent_count": 8,
+  "deterministic_count": 8,
+  "criteria": [
+    "growth_profile"
+  ],
+  "candidates": 8,
+  "peers": [
+    {
+      "cap_id": "IQ386024",
+      "agent_recommended": true,
+      "name": "Cognizant Technology Solutions Corporation",
+      "ticker": "NasdaqGS:CTSH",
+      "company": {
+        "cap_id": "IQ386024",
+        "entity_key": "260408_Unlinked_CIQ Pull_AMER_v1|IQ386024",
+        "source_file": "260408_Unlinked_CIQ Pull_AMER_v1",
+        "Company Name": "Cognizant Technology Solutions Corporation",
+        "Exchange:Ticker": "NasdaqGS:CTSH",
+        "Year": "LTM22025",
+        "Region": "N.America",
+        "Exchange Country/Region": "United States",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 20486,
+        "revenue_size": 4.311457168381031,
+        "gross_margin": 0.34179439617299623,
+        "ebitda_margin": 0.180025383188519,
+        "operating_margin": 0.15517914673435518,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0.02660353412086303,
+        "accounts_receivable_days": 78.43063555598945,
+        "accounts_payable_days": 7.552284188668051,
+        "inventory_days": null,
+        "revenue_growth_rate": 0.028031282502597676,
+        "leverage": -0.1710954446854664
+      },
+      "found_as": "Cognizant Technology Solutions Corporation",
+      "evidence": "Global IT consulting firm comparable in sector and growth profile to Capgemini.",
+      "sources": [
+        "https://uk.investing.com/pro/ENXTPA%3ACAP/compare",
+        "https://elaxtra.com/insights/tech-services-q3-2025-public-company-valuation-and-operating-metrics"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "Cognizant is very close to Capgemini on revenue scale (USD 21.1 B vs USD 22.1 B), operates in the same IT consulting and services industry and has a similarly diversified vertical segment exposure (healthcare, financial services, products & resources, communications/media/tech), though its US-based reporting and recent AI‑builder repositioning may require medium adjustment before direct comparison.",
+        "comparability": 0.85,
+        "comparability_band": "High",
+        "comparability_summary": "Overall, Cognizant is a close and appropriate peer to Capgemini in size, industry verticals and strategic orientation, with moderate normalisation needed.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.85,
+            "signal": "strong",
+            "details": "Cognizant achieved ~7 % revenue growth in 2025 (6.4 % constant currency), close to Capgemini’s modest ~0.7 % growth, making it a close match though slightly higher‑growth peer."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Health Sciences (Healthcare)",
+            "revenue_share": 0.3,
+            "maps_to": "Health‑/Life‑Sciences‑oriented IT consulting in Capgemini",
+            "signal": "comparable",
+            "note": "Healthcare vertical is a major revenue driver, as in Capgemini.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Financial Services",
+            "revenue_share": 0.3,
+            "maps_to": "Banking & Financial Services consulting in Capgemini",
+            "signal": "comparable",
+            "note": "Financial services vertical aligns strongly.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Products and Resources",
+            "revenue_share": 0.25,
+            "maps_to": "Products, Resources & Manufacturing consulting in Capgemini",
+            "signal": "comparable",
+            "note": "Products & resources vertical similarly represented.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Communications, Media and Technology",
+            "revenue_share": 0.165,
+            "maps_to": "Communications & Media consulting in Capgemini",
+            "signal": "comparable",
+            "note": "Comms/media/technology vertical also present though smaller share.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE",
+            "source": "snapshot",
+            "column": "Revenue",
+            "unit": "usd_millions",
+            "target_value": 22065,
+            "peer_value": 20486,
+            "gap": -1579,
+            "note": "Peer is slightly smaller (~1.5 B lower), a close match."
+          },
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.028,
+            "gap": 0.021,
+            "note": "Cognizant grew around 7 %, significantly faster than Capgemini’s ~0.7 %."
+          },
+          {
+            "metric": "OPERATING MARGIN",
+            "source": "snapshot",
+            "column": "operating_margin",
+            "unit": "ratio",
+            "target_value": 0.1113,
+            "peer_value": 0.1552,
+            "gap": 0.0439,
+            "note": "Peer has materially higher margin (~5 ppt higher), indicating stronger operational efficiency."
+          },
+          {
+            "metric": "EBITDA MARGIN",
+            "source": "snapshot",
+            "column": "ebitda_margin",
+            "unit": "ratio",
+            "target_value": 0.1293,
+            "peer_value": 0.18,
+            "gap": 0.0507,
+            "note": "Peer’s EBITDA margin is ~2.6 ppt higher."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "MarketScreener / Bullfincher",
+            "detail": "Segment revenue share and total revenue in 2025.",
+            "url": null
+          },
+          {
+            "name": "Cognizant Investor Relations (Q4 & FY2025 results)",
+            "detail": "Revenue growth percentages, operating margin, adjusted margin, cash flow conversion.",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.85,
+          "summary": "Moderately high confidence given publicly available 2025 data; segment mapping is clear but SG&A is missing.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (2)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 10,
+          "metrics_total": 11,
+          "source_count": 2
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ519888",
+      "agent_recommended": false,
+      "name": "Bertelsmann SE & Co. KGaA",
+      "ticker": null,
+      "company": {
+        "cap_id": "IQ519888",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_pvt_v1|IQ519888",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_pvt_v1",
+        "Company Name": "Bertelsmann SE & Co. KGaA",
+        "Exchange:Ticker": null,
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "Germany",
+        "Company Type": "Private Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Media",
+        "Bain Sector": "Media",
+        "Primary Sector": "Communication Services",
+        "Primary Industry": "Broadcasting",
+        "Revenue": 18988,
+        "revenue_size": 4.278479223046323,
+        "gross_margin": 0.28844533389509164,
+        "ebitda_margin": 0.11586265009479671,
+        "operating_margin": 0.08852959764061513,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0.05908995154834632,
+        "accounts_receivable_days": 71.4506530440278,
+        "accounts_payable_days": 116.73192213751759,
+        "inventory_days": 23.854266893642215,
+        "revenue_growth_rate": 0.007098964836292243,
+        "leverage": 2.048636363636364
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.000031,
+      "similarity": 0.999969,
+      "shared_columns": 1,
+      "analysis": {
+        "why_included": "Bertelsmann is broadly similar in scale to Capgemini (around €19 billion vs USD 22 billion revenues), operates across media, services and education versus IT consulting, and would require medium-level adjustments for sectoral differences and reporting conventions.",
+        "comparability": 0.85,
+        "comparability_band": "High",
+        "comparability_summary": "Overall, Bertelsmann is a reasonably close comparator on growth trajectory and scale, though business mix differs materially.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.85,
+            "signal": "strong",
+            "details": "Both firms show very low revenue growth (~0.7 % for Capgemini and flat to slightly down for Bertelsmann in 2025), indicating similar maturity and growth stagnation."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "RTL Group (Entertainment)",
+            "revenue_share": 0.333,
+            "maps_to": "IT Consulting & Other Services (loosely via digital/media services)",
+            "signal": "partial",
+            "note": "Largest division (~€6.3 bn of €19 bn, ~33 %), focuses on entertainment and media content.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Penguin Random House (Books)",
+            "revenue_share": 0.263,
+            "maps_to": "IT Consulting & Other Services (loosely via content production)",
+            "signal": "partial",
+            "note": "Second-largest (~€5.0 bn, ~26 %), trade publishing business.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Arvato Group (Services)",
+            "revenue_share": 0.231,
+            "maps_to": "IT Consulting & Other Services",
+            "signal": "comparable",
+            "note": "Services division (~€4.38 bn, ~23 %) providing logistics, digital and business services, most comparable to Capgemini’s IT services model.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "BMG (Music)",
+            "revenue_share": 0.047,
+            "maps_to": "IT Consulting & Other Services (loosely)",
+            "signal": "different",
+            "note": "Music company (~€0.9 bn, ~5 %), not directly comparable.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Bertelsmann Education Group",
+            "revenue_share": 0.05,
+            "maps_to": "Other (education services)",
+            "signal": "different",
+            "note": "Educational services (~€0.95 bn, ~5 %), outside Capgemini’s scope.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.0071,
+            "gap": 0,
+            "note": "Capgemini’s revenue growth is roughly 0.7 %, while Bertelsmann’s revenue was flat or slightly down (~–0.17 %), indicating similar low-growth profile."
+          },
+          {
+            "metric": "EBITDA MARGIN",
+            "source": "snapshot",
+            "column": "ebitda_margin",
+            "unit": "ratio",
+            "target_value": 0.1293,
+            "peer_value": 0.1159,
+            "gap": -0.0134,
+            "note": "Bertelsmann’s Group EBITDA margin (~15.9 %) is somewhat higher than Capgemini’s (~12.93 %), suggesting marginally stronger operating profit efficiency."
+          },
+          {
+            "metric": "LEVERAGE FACTOR",
+            "source": "agent",
+            "column": null,
+            "unit": "ratio",
+            "target_value": 1.3887,
+            "peer_value": 2,
+            "gap": 0.6113,
+            "note": "Bertelsmann’s leverage (~2.0) exceeds Capgemini’s (~1.39), indicating higher indebtedness, albeit within media vs IT services context."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "Bertelsmann Annual Report 2025 / 'Financial Figures' and segment disclosures",
+            "detail": "Provided segment revenues, EBITDA margin, EBIT, leverage factor, group profit.",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.85,
+          "summary": "Medium confidence: data drawn from recent public disclosures, segment mapping is approximate given sector differences.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "No",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 11,
+          "metrics_total": 11,
+          "source_count": 1
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ1222537",
+      "agent_recommended": true,
+      "name": "Reply S.p.A.",
+      "ticker": "BIT:REY",
+      "company": {
+        "cap_id": "IQ1222537",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ1222537",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "Reply S.p.A.",
+        "Exchange:Ticker": "BIT:REY",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "Italy",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 2401.415,
+        "revenue_size": 3.3804672190473224,
+        "gross_margin": 0.1872491843350691,
+        "ebitda_margin": 0.1456158140096568,
+        "operating_margin": 0.14075576274821303,
+        "research_and_development_intensity": 0.0009311176951922096,
+        "depreciation_intensity": 0.0440885894358118,
+        "accounts_receivable_days": 72.57456957668708,
+        "accounts_payable_days": 33.214732199582734,
+        "inventory_days": 44.11581748090946,
+        "revenue_growth_rate": 0.09013996096473509,
+        "leverage": -1.0345111586460918
+      },
+      "found_as": "Reply S.p.A.",
+      "evidence": "Provides IT consulting services, included among similar‑revenue peers in sector benchmarks.",
+      "sources": [
+        "https://uk.investing.com/pro/ENXTPA%3ACAP/compare",
+        "https://in.investing.com/pro/XWBO%3ACAPG/explorer/total_rev"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "Reply is smaller in absolute scale — ~€2.48 billion revenue vs Capgemini’s ~US $22 billion—but both operate in IT consulting, system integration, and digital services across the EMEA region, with similar business models and client sectors. Reply’s more focused digital‑services and IoT capabilities provide a useful growth trajectory comparison, though its smaller size and segment reporting structure require medium normalization.",
+        "comparability": 0.78,
+        "comparability_band": "High",
+        "comparability_summary": "Reply offers a close growth‑profile analog despite its smaller scale, with a comparable digital services consulting model in EMEA.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.78,
+            "signal": "strong",
+            "details": "Reply grew revenue by ~8% in 2025 and delivered robust EBITDA and EBIT margin expansion, signaling a growth trajectory aligned with dynamic IT consulting peers."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Region 1 (incl. IoT Incubator)",
+            "revenue_share": 0.62,
+            "maps_to": "IT Consulting & Other Services",
+            "signal": "comparable",
+            "note": "Largest segment, aligns to Capgemini's consulting and digital services.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Region 2",
+            "revenue_share": 0.19,
+            "maps_to": "IT Consulting & Other Services",
+            "signal": "comparable",
+            "note": "Secondary consulting segment in other regions.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Region 3",
+            "revenue_share": 0.19,
+            "maps_to": "IT Consulting & Other Services",
+            "signal": "comparable",
+            "note": "Third geographic consulting segment complementing the model.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [],
+        "data_sources": [
+          {
+            "name": "Business Wire – Reply 2025 Financial Results",
+            "detail": "EBITDA, EBIT, net profit, revenue growth figures for Reply in 2025.",
+            "url": null
+          },
+          {
+            "name": "Euronext Live – Company Information",
+            "detail": "Geographic revenue breakdown, net sales and income figures.",
+            "url": null
+          },
+          {
+            "name": "MarketScreener – Business Segments",
+            "detail": "Revenue share by business segment (Region 1/2/3 breakdown).",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.85,
+          "summary": "Data drawn from recent financial reports and segment disclosures is fairly complete though some cost‑ratio metrics (e.g. SG&A) are missing.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (3)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 11,
+          "metrics_total": 11,
+          "source_count": 3
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ121289",
+      "agent_recommended": true,
+      "name": "CGI Inc.",
+      "ticker": "TSX:GIB.A",
+      "company": {
+        "cap_id": "IQ121289",
+        "entity_key": "260408_Unlinked_CIQ Pull_AMER_v1|IQ121289",
+        "source_file": "260408_Unlinked_CIQ Pull_AMER_v1",
+        "Company Name": "CGI Inc.",
+        "Exchange:Ticker": "TSX:GIB.A",
+        "Year": "LTM22025",
+        "Region": "N.America",
+        "Exchange Country/Region": "Canada",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 11424.21368,
+        "revenue_size": 4.057826317609359,
+        "gross_margin": 0.20575945932411865,
+        "ebitda_margin": 0.17764608110866495,
+        "operating_margin": 0.16411189973470452,
+        "research_and_development_intensity": 0.0007358913475785057,
+        "depreciation_intensity": 0.03633462500151695,
+        "accounts_receivable_days": 62.19030046188702,
+        "accounts_payable_days": 29.308438654708006,
+        "inventory_days": null,
+        "revenue_growth_rate": 0.06547429867611898,
+        "leverage": 1.2744429781972435
+      },
+      "found_as": "CGI Inc.",
+      "evidence": "IT consulting and services company of similar scale and in same industry group.",
+      "sources": [
+        "https://seekingalpha.com/symbol/CAPMF/peers/comparison"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "CGI Inc. is a similar-sized IT consulting and managed‑services firm with about half the revenue of Capgemini (USD 11.4 B vs USD 22.1 B), operating across comparable geographies and services. Its business splits—roughly 55% managed services and 45% consulting, and diversified by region—mirror Capgemini’s mix, though normalization for differences in margin definitions and segment alignment may be needed.",
+        "comparability": 0.77,
+        "comparability_band": "High",
+        "comparability_summary": "CGI is a close comparability peer to Capgemini due to alignment in services, geographic reach, and growth profile, albeit at a smaller scale requiring moderate adjustments.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.77,
+            "signal": "strong",
+            "details": "CGI has demonstrated steady mid‑single digit revenue growth and strong EPS CAGR (~7.6% and 15% since 2005), comparable to Capgemini’s low‑growth profile."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Managed IT and business process services",
+            "revenue_share": 0.5543,
+            "maps_to": "Managed services (comparable)",
+            "signal": "comparable",
+            "note": "Largest service line at ~55% of revenue.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Business and strategic IT consulting and systems integration services",
+            "revenue_share": 0.4457,
+            "maps_to": "Consulting & SI (comparable)",
+            "signal": "comparable",
+            "note": "Second service line at ~45% of revenue.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.0655,
+            "gap": 0.0584,
+            "note": "CGI grew ~5.5% constant‑currency in FY 2025 vs Capgemini’s near zero growth, showing stronger growth."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "TradingKey / Marketscreener",
+            "detail": "Segment revenue share and geography breakdown for CGI in FY 2025.",
+            "url": null
+          },
+          {
+            "name": "CGI investor presentation & MD&A (Q3 F2026 / annual report)",
+            "detail": "Growth, adjusted‑EBIT margins, EPS CAGR and service/geography splits.",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.85,
+          "summary": "I’m confident CGI is a strong, comparable peer with similar service model and growth trajectory, though some normalization on margins is needed.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (2)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 10,
+          "metrics_total": 11,
+          "source_count": 2
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ972190",
+      "agent_recommended": true,
+      "name": "Accenture plc",
+      "ticker": "NYSE:ACN",
+      "company": {
+        "cap_id": "IQ972190",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ972190",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "Accenture plc",
+        "Exchange:Ticker": "NYSE:ACN",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "Ireland",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 59563.42804,
+        "revenue_size": 4.774979684647856,
+        "gross_margin": 0.3191395281553375,
+        "ebitda_margin": 0.17542715310110954,
+        "operating_margin": 0.1557870420716638,
+        "research_and_development_intensity": 0.011730516409008216,
+        "depreciation_intensity": 0,
+        "accounts_receivable_days": 78.50319996709847,
+        "accounts_payable_days": 20.740730654604562,
+        "inventory_days": null,
+        "revenue_growth_rate": 0.00858375105226239,
+        "leverage": -0.2701410804180843
+      },
+      "found_as": "Accenture plc",
+      "evidence": "Global IT consulting leader with similar growth trajectory and much larger scale but comparable services and digital transformation capabilities.",
+      "sources": [
+        "https://www.hackingthecaseinterview.com/pages/top-it-consulting-firms"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "Accenture is substantially larger than Capgemini but operates in the same global IT consulting and outsourcing services space, with a similar growth trajectory (7% FY2025 growth) that closely matches Capgemini’s modest ~0.7% growth. Their complementary business mix — roughly equal consulting and outsourcing split — parallels Capgemini’s structure, though Accenture’s scale may require adjusting for size-related economies of scale in benchmarking.",
+        "comparability": 0.75,
+        "comparability_band": "High",
+        "comparability_summary": "Accenture is a close, though not near‑identical, peer—similar in business model and growth trajectory but materially larger in scale.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.75,
+            "signal": "strong",
+            "details": "Accenture grew ~7% in fiscal 2025, closely tracking Capgemini’s low-single-digit growth (~0.7%), showing modest difference in growth trajectory."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Consulting",
+            "revenue_share": 0.5039,
+            "maps_to": "IT Consulting and Other Services",
+            "signal": "comparable",
+            "note": "Consulting forms roughly half of Accenture’s revenue, matching Capgemini’s IT consulting focus.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Outsourcing/Managed Services",
+            "revenue_share": 0.4961,
+            "maps_to": "IT Consulting and Other Services",
+            "signal": "comparable",
+            "note": "Outsourcing is nearly half of revenue, similar channel split to Capgemini’s services delivery.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE",
+            "source": "snapshot",
+            "column": "Revenue",
+            "unit": "usd_millions",
+            "target_value": 22065,
+            "peer_value": 59563.428,
+            "gap": 37498.428,
+            "note": "Accenture’s revenue is ~2.7× Capgemini’s, indicating scale differences."
+          },
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.0086,
+            "gap": 0.0015,
+            "note": "Peer’s slightly higher growth rate aligns closely with target’s modest growth trajectory."
+          },
+          {
+            "metric": "OPERATING MARGIN",
+            "source": "snapshot",
+            "column": "operating_margin",
+            "unit": "ratio",
+            "target_value": 0.1113,
+            "peer_value": 0.1558,
+            "gap": 0.0445,
+            "note": "Accenture’s higher operating margin suggests better efficiency or scale."
+          },
+          {
+            "metric": "GROSS MARGIN",
+            "source": "snapshot",
+            "column": "gross_margin",
+            "unit": "ratio",
+            "target_value": 0.2726,
+            "peer_value": 0.3191,
+            "gap": 0.0466,
+            "note": "Peer’s stronger gross margin reflects possibly higher-value services or operating leverage."
+          },
+          {
+            "metric": "EBITDA MARGIN",
+            "source": "snapshot",
+            "column": "ebitda_margin",
+            "unit": "ratio",
+            "target_value": 0.1293,
+            "peer_value": 0.1754,
+            "gap": 0.0461,
+            "note": "Accenture generates higher EBITDA margin, reinforcing scale advantage."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "Accenture FY2025 Annual Report (10‑K)",
+            "detail": "Growth (~7%), operating margin 15.6%, revenue $69.7B",
+            "url": null
+          },
+          {
+            "name": "Bullfincher revenue‑by‑segment data",
+            "detail": "Consulting vs Outsourcing split ~50.4% vs 49.6%",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.85,
+          "summary": "Segment revenue splits and growth data are well‑sourced, though Capgemini’s metrics are assumed accurate.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Low",
+            "sources_cross_checked": "Yes (2)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 10,
+          "metrics_total": 11,
+          "source_count": 2
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ4773318",
+      "agent_recommended": true,
+      "name": "EPAM Systems, Inc.",
+      "ticker": "NYSE:EPAM",
+      "company": {
+        "cap_id": "IQ4773318",
+        "entity_key": "260408_Unlinked_CIQ Pull_AMER_v1|IQ4773318",
+        "source_file": "260408_Unlinked_CIQ Pull_AMER_v1",
+        "Company Name": "EPAM Systems, Inc.",
+        "Exchange:Ticker": "NYSE:EPAM",
+        "Year": "LTM22025",
+        "Region": "N.America",
+        "Exchange Country/Region": "United States",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 5071.013,
+        "revenue_size": 3.7050947239024437,
+        "gross_margin": 0.3007460245122622,
+        "ebitda_margin": 0.14090084170559217,
+        "operating_margin": 0.11960312466168002,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0.021495310700248647,
+        "accounts_receivable_days": 83.41902101217251,
+        "accounts_payable_days": 4.660692298711254,
+        "inventory_days": null,
+        "revenue_growth_rate": 0.04190812675920297,
+        "leverage": -1.2297280653874685
+      },
+      "found_as": "EPAM Systems, Inc.",
+      "evidence": "Digital engineering and IT consulting firm with strong growth trajectory and similar industry grouping.",
+      "sources": [
+        "https://uk.investing.com/pro/ENXTPA%3ACAP/compare",
+        "https://elaxtra.com/insights/tech-services-q3-2025-public-company-valuation-and-operating-metrics"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "EPAM Systems, while substantially smaller than Capgemini (~$5.46B vs. ~$22.07B revenue), operates in the same IT Consulting and Services industry and has a similar service-oriented business model across EMEA and the Americas. Its geographic and vertical mix—particularly its strong presence in Financial Services and Emerging Verticals—offers a useful growth-profile comparison, though differences in scale and regional skew warrant moderate adjustments.",
+        "comparability": 0.75,
+        "comparability_band": "High",
+        "comparability_summary": "Overall, EPAM is a close, though not near-identical, comparable peer to Capgemini in terms of industry and growth dynamics, earning a moderate comparability score.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.75,
+            "signal": "strong",
+            "details": "EPAM has higher revenue growth (~15.4% full-year 2025) versus Capgemini’s ~0.71%, indicating a faster growth trajectory but still within the same service segment dynamics, a meaningful but not perfect match."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Financial Services",
+            "revenue_share": 0.2412,
+            "maps_to": "IT Consulting and Other Services – Financial vertical",
+            "signal": "comparable",
+            "note": "Largest vertical at ~24.1% of EPAM's revenue, aligning with Capgemini’s vertical-based consulting offerings.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Travel & Consumer",
+            "revenue_share": 0.1975,
+            "maps_to": "IT Consulting and Other Services – Consumer/Travel vertical",
+            "signal": "comparable",
+            "note": "Second-largest vertical at ~19.8%, reflecting similar non-financial consulting markets.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Emerging Verticals",
+            "revenue_share": 0.1722,
+            "maps_to": "IT Consulting and Other Services – Emerging vertical",
+            "signal": "partial",
+            "note": "A material part (~17.2%), although Capgemini's vertical segmentation may differ.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Software & Hi‑Tech",
+            "revenue_share": 0.1506,
+            "maps_to": "IT Consulting and Other Services – Hi-Tech/Software vertical",
+            "signal": "comparable",
+            "note": "Important part (~15.1%) aligning with technology consulting within Capgemini.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Business Information & Media",
+            "revenue_share": 0.1238,
+            "maps_to": "IT Consulting and Other Services – Info & Media vertical",
+            "signal": "comparable",
+            "note": "Moderate segment (~12.4%), similar to Capgemini’s media-related services.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Life Sciences & Healthcare",
+            "revenue_share": 0.1146,
+            "maps_to": "IT Consulting and Other Services – Healthcare vertical",
+            "signal": "comparable",
+            "note": "Also meaningful (~11.5%), mapping to Capgemini’s healthcare consulting operations.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.0419,
+            "gap": 0.0348,
+            "note": "EPAM’s growth (~4.19%) significantly exceeds Capgemini’s (~0.71%), showing stronger momentum."
+          },
+          {
+            "metric": "GROSS MARGIN",
+            "source": "snapshot",
+            "column": "gross_margin",
+            "unit": "ratio",
+            "target_value": 0.2726,
+            "peer_value": 0.3007,
+            "gap": 0.0282,
+            "note": "EPAM’s gross margin is modestly higher (~3 percentage points), suggesting slightly better cost of services structure."
+          },
+          {
+            "metric": "EBITDA MARGIN",
+            "source": "snapshot",
+            "column": "ebitda_margin",
+            "unit": "ratio",
+            "target_value": 0.1293,
+            "peer_value": 0.1409,
+            "gap": 0.0116,
+            "note": "EPAM’s EBITDA margin is moderately higher, indicating somewhat better operational leverage."
+          },
+          {
+            "metric": "OPERATING MARGIN",
+            "source": "snapshot",
+            "column": "operating_margin",
+            "unit": "ratio",
+            "target_value": 0.1113,
+            "peer_value": 0.1196,
+            "gap": 0.0083,
+            "note": "Operating margin is slightly stronger at EPAM (~0.8 pp higher), consistent with higher growth and margin profile."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "MarketScreener",
+            "detail": "EPAM’s revenue by geographic segment: ~58% Americas, ~42% Europe (2025).",
+            "url": null
+          },
+          {
+            "name": "TradingKey",
+            "detail": "EPAM’s revenue by vertical: Financial Services (~24.12%), Travel & Consumer (~19.75%), Emerging Verticals (~17.22%), Software & Hi‑Tech (~15.06%), Business Info & Media (~12.38%), Life Sciences & Healthcare (~11.46%) for FY2025.",
+            "url": null
+          },
+          {
+            "name": "TickerGate",
+            "detail": "EPAM’s full year 2025 revenue of ~$5.46B, growth of +15.4%; Q2 2026 ~4.5% YoY growth.",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.7,
+          "summary": "Moderate confidence: vertical data solidly sourced, but lacks SG&A and exact segment margins; EPAM’s growth trajectory is clear but scale difference is material.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (3)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 10,
+          "metrics_total": 11,
+          "source_count": 3
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ879381",
+      "agent_recommended": true,
+      "name": "Sopra Steria Group SA",
+      "ticker": "ENXTPA:SOP",
+      "company": {
+        "cap_id": "IQ879381",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ879381",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "Sopra Steria Group SA",
+        "Exchange:Ticker": "ENXTPA:SOP",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "France",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 5671.1,
+        "revenue_size": 3.7536673053825047,
+        "gross_margin": 0.1482781118301565,
+        "ebitda_margin": 0.10132073142776533,
+        "operating_margin": 0.08675565586923172,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0.03468462908430463,
+        "accounts_receivable_days": 94.53404101497064,
+        "accounts_payable_days": 30.07535919837688,
+        "inventory_days": 3.1888948697776494,
+        "revenue_growth_rate": 0.03452449704657301,
+        "leverage": 1.9986077271145146
+      },
+      "found_as": "Sopra Steria Group SA",
+      "evidence": "French IT services and consulting peer with similar industry and listed in same benchmarks.",
+      "sources": [
+        "https://uk.investing.com/pro/ENXTPA%3ACAP/compare",
+        "https://disfold.com/france/industry/information-technology-services/companies"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "Sopra Steria is a France‑based peer operating in the same EMEA region and IT consulting services industry as Capgemini, though at a smaller scale (approximately $6.6 billion vs. Capgemini’s $22.1 billion in revenue). Its business mix—dominated by IT consulting across France, other Europe, UK and enterprise software solutions—aligns closely with Capgemini’s service offerings, though modest normalization may be needed for differences in segment definitions and recent acquisitions.",
+        "comparability": 0.75,
+        "comparability_band": "High",
+        "comparability_summary": "Overall, Sopra Steria is a close match in business model and regional footprint, with some size and segmentation differences that warrant low–medium adjustment.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.75,
+            "signal": "strong",
+            "details": "Both firms returned to organic growth in late 2025 after declines earlier in the year; Sopra Steria was down ~2.2% full‑year but grew in Q4, similar to Capgemini’s modest positive growth."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "IT Consulting – France",
+            "revenue_share": 0.43,
+            "maps_to": "IT Consulting and Other Services (Capgemini)",
+            "signal": "comparable",
+            "note": "France IT consulting is the largest segment, aligns with Capgemini’s core consulting business.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "IT Consulting – Other Europe",
+            "revenue_share": 0.35,
+            "maps_to": "IT Consulting and Other Services (Capgemini)",
+            "signal": "comparable",
+            "note": "Strong presence in continental Europe similar to Capgemini's coverage.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "IT Consulting – United Kingdom",
+            "revenue_share": 0.16,
+            "maps_to": "IT Consulting and Other Services (Capgemini)",
+            "signal": "comparable",
+            "note": "UK consulting operations align with Capgemini’s similar geography.",
+            "sources": [],
+            "included": true
+          },
+          {
+            "name": "Enterprise Software Solutions",
+            "revenue_share": null,
+            "maps_to": "Software & Solutions (Capgemini)",
+            "signal": "partial",
+            "note": "Smaller enterprise software arm provides additional software offerings, partially analogous to Capgemini’s services.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE",
+            "source": "snapshot",
+            "column": "Revenue",
+            "unit": "usd_millions",
+            "target_value": 22065,
+            "peer_value": 5671.1,
+            "gap": -16393.9,
+            "note": "Peer is ~25% of target’s scale, so adjustments for scale are needed."
+          },
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.0345,
+            "gap": 0.0275,
+            "note": "Sopra Steria’s growth rate is modestly stronger, indicating a slightly more dynamic trajectory."
+          },
+          {
+            "metric": "OPERATING MARGIN",
+            "source": "snapshot",
+            "column": "operating_margin",
+            "unit": "ratio",
+            "target_value": 0.1113,
+            "peer_value": 0.0868,
+            "gap": -0.0246,
+            "note": "Sopra Steria’s margin is lower by about 240 bps, reflecting lower scale or margin pressure."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "MarketScreener",
+            "detail": "Segment revenue splits by geography and business line for Sopra Steria.",
+            "url": null
+          },
+          {
+            "name": "BusinessWire / MarketScreener (2025 results)",
+            "detail": "Full‑year financials including revenue, margins, net profit and cash flow figures.",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.87,
+          "summary": "Information on segments and key metrics is from reputable investor reports, though Capgemini‑side metrics are assumed accurate.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (2)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 11,
+          "metrics_total": 11,
+          "source_count": 2
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ883542",
+      "agent_recommended": true,
+      "name": "Alten S.A.",
+      "ticker": "ENXTPA:ATE",
+      "company": {
+        "cap_id": "IQ883542",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ883542",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "Alten S.A.",
+        "Exchange:Ticker": "ENXTPA:ATE",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "France",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 4119.364,
+        "revenue_size": 3.614830169282672,
+        "gross_margin": 0.18216428555476027,
+        "ebitda_margin": 0.08444094768027299,
+        "operating_margin": 0.07845410116707337,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0.02248720919054495,
+        "accounts_receivable_days": 114.02809875505055,
+        "accounts_payable_days": 20.766550419223954,
+        "inventory_days": 0.011917613817664367,
+        "revenue_growth_rate": 0.027091199736514637,
+        "leverage": 0.10254626368792817
+      },
+      "found_as": "Alten SA",
+      "evidence": "Engineering and IT services firm in France, listed alongside Capgemini in revenue comparisons.",
+      "sources": [
+        "https://uk.investing.com/pro/ENXTPA%3ACAP/compare",
+        "https://disfold.com/france/industry/information-technology-services/companies"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "Alten is a fellow France‑based EMEA IT consulting and tech services firm with a comparable business mix, albeit on a smaller revenue base (~€4.10 bn vs Capgemini’s ~US$22 bn). Both operate engineering and IT consulting models across industrial and public sectors, though Alten’s 2025 results show non‑recurring charges impacting operating profit that should be normalized when comparing margin metrics.",
+        "comparability": 0.75,
+        "comparability_band": "High",
+        "comparability_summary": "Although about 5× smaller than Capgemini, Alten’s comparable engineering‑ and IT‑services model in France and internationally makes it a close benchmark with modest adjustments.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.75,
+            "signal": "strong",
+            "details": "Both experienced very modest revenue growth in 2025 (Capgemini nearly flat, Alten –1.1% organic), with similar sectoral trends, showing close but slightly divergent trajectories."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Engineering Services (IT Consulting)",
+            "revenue_share": 1,
+            "maps_to": "IT Consulting and Other Services",
+            "signal": "comparable",
+            "note": "Alten reports all revenue under a single Engineering Services segment, aligning closely with Capgemini’s IT‑consulting and services focus.",
+            "sources": [],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": 0.0271,
+            "gap": 0.02,
+            "note": "Alten had ‑1.1% organic decline in 2025 vs Capgemini’s flat growth, showing slightly weaker growth trajectory."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "Company annual press release",
+            "detail": "Operating profit on activity, operating profit, net profit, free cash‑flow, organic growth from Alten’s 2025 results press release.",
+            "url": null
+          },
+          {
+            "name": "S&P Global Market Intelligence via StockAnalysis",
+            "detail": "Breakdown of Alten’s revenue by segment and geography (Engineering Services 100%).",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.85,
+          "summary": "Information is based on reliable 2025 peer data; moderate adjustments needed to align profit metrics.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (2)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 11,
+          "metrics_total": 11,
+          "source_count": 2
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ135285",
+      "agent_recommended": true,
+      "name": "Atos SE",
+      "ticker": "ENXTPA:ATO",
+      "company": {
+        "cap_id": "IQ135285",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ135285",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "Atos SE",
+        "Exchange:Ticker": "ENXTPA:ATO",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "France",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "Tech",
+        "Bain Sector": "Tech Services",
+        "Primary Sector": "Information Technology",
+        "Primary Industry": "IT Consulting and Other Services",
+        "Revenue": 8633,
+        "revenue_size": 3.9361617409111576,
+        "gross_margin": 0.021892737171319343,
+        "ebitda_margin": 0.014479323526004865,
+        "operating_margin": -0.020618556701030927,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0,
+        "accounts_receivable_days": 89.92876172825206,
+        "accounts_payable_days": 41.97240644244434,
+        "inventory_days": 7.17550923732828,
+        "revenue_growth_rate": -0.10791387472236225,
+        "leverage": 11.592
+      },
+      "found_as": "Atos SE",
+      "evidence": "French IT services and consulting company often grouped with Capgemini peers in competitive lists.",
+      "sources": [
+        "https://craft.co/capgemini/competitors",
+        "https://disfold.com/france/industry/information-technology-services/companies"
+      ],
+      "distance": null,
+      "similarity": null,
+      "shared_columns": null,
+      "analysis": {
+        "why_included": "Atos SE is a sizable France‑based peer in the same EMEA IT consulting and tech services industry, with revenue (~$8 billion) smaller than Capgemini’s ~$22 billion but sharing similar service lines; its recent structure under the Genesis transformation simplifies its comparability by focusing on two pillars (Atos SBU and Eviden), though one‑off restructuring charges and disposals may require normalization.",
+        "comparability": 0.6,
+        "comparability_band": "Medium",
+        "comparability_summary": "Overall, Atos is a close match in business model and industry focus, with differences in scale and restructuring effects that require medium adjustments.",
+        "criteria": [
+          {
+            "criterion": "growth_profile",
+            "score": 0.6,
+            "signal": "partial",
+            "details": "Atos delivered organic revenue decline (~‑5 % in FY 2024; ~‑15 % in H1 2025), whereas Capgemini’s growth is near flat (~0.7 %), reflecting material but not completely divergent trajectories ([atos.net](https://atos.net/wp-content/uploads/2025/03/PR-Atos-FY-2024-results.pdf))."
+          }
+        ],
+        "business_units": [
+          {
+            "name": "Atos SBU (Strategic Business Unit)",
+            "revenue_share": null,
+            "maps_to": "Capgemini’s infrastructure and managed services offering",
+            "signal": "comparable",
+            "note": "This unit focuses on digital services, cloud and managed infrastructure, aligning with Capgemini’s services lines.",
+            "sources": [
+              "https://www.marketscreener.com/news/251020-PR-Atos-Q3-2025-performance.pdf"
+            ],
+            "included": true
+          },
+          {
+            "name": "Eviden",
+            "revenue_share": null,
+            "maps_to": "Capgemini’s cybersecurity and high‑tech consulting",
+            "signal": "comparable",
+            "note": "Eviden covers cybersecurity, digital transformation and high‑performance computing—specialized consultative services similar to Capgemini’s tech consulting.",
+            "sources": [
+              "https://www.marketscreener.com/news/251020-PR-Atos-Q3-2025-performance.pdf"
+            ],
+            "included": true
+          }
+        ],
+        "key_metrics": [
+          {
+            "metric": "REVENUE GROWTH",
+            "source": "snapshot",
+            "column": "revenue_growth_rate",
+            "unit": "ratio",
+            "target_value": 0.0071,
+            "peer_value": -0.1079,
+            "gap": -0.115,
+            "note": "Atos is declining materially while Capgemini is roughly flat – signals divergence in growth trajectory."
+          },
+          {
+            "metric": "OPERATING MARGIN",
+            "source": "snapshot",
+            "column": "operating_margin",
+            "unit": "ratio",
+            "target_value": 0.1113,
+            "peer_value": -0.0206,
+            "gap": -0.1319,
+            "note": "Capgemini is profitable at ~11 %, Atos was slightly loss‑making, reflecting weaker operating performance."
+          },
+          {
+            "metric": "EBITDA MARGIN",
+            "source": "snapshot",
+            "column": "ebitda_margin",
+            "unit": "ratio",
+            "target_value": 0.1293,
+            "peer_value": 0.0145,
+            "gap": -0.1148,
+            "note": "Capgemini’s EBITDA margin is substantially higher, Atos’s is low, underscoring scale and efficiency difference."
+          },
+          {
+            "metric": "LEVERAGE",
+            "source": "snapshot",
+            "column": "leverage",
+            "unit": "ratio",
+            "target_value": 1.3887,
+            "peer_value": 11.592,
+            "gap": 10.2033,
+            "note": "Atos currently has much higher leverage, indicating financial structure differences."
+          }
+        ],
+        "data_sources": [
+          {
+            "name": "MarketScreener",
+            "detail": "Segment breakdown and FY 2025 results of Atos (Atos SBU and Eviden performance).",
+            "url": null
+          },
+          {
+            "name": "Press Releases from Atos and MarketScreener",
+            "detail": "Financial results (revenue, margins, restructuring charges) for FY 2024 and FY 2025.",
+            "url": null
+          }
+        ],
+        "confidence": {
+          "score": 0.8,
+          "summary": "Medium confidence based on publicly available segment reporting and financial disclosures; revenue share fractions are not available.",
+          "factors": {
+            "data_completeness": "High",
+            "adjustments_required": "Medium",
+            "sources_cross_checked": "Yes (2)",
+            "comparable_model": "Yes"
+          },
+          "metrics_present": 11,
+          "metrics_total": 11,
+          "source_count": 2
+        }
+      },
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ882932",
+      "agent_recommended": false,
+      "name": "Ford Otomotiv Sanayi A.S.",
+      "ticker": "IBSE:FROTO",
+      "company": {
+        "cap_id": "IQ882932",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ882932",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "Ford Otomotiv Sanayi A.S.",
+        "Exchange:Ticker": "IBSE:FROTO",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "Turkey",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included",
+        "Bain Industry": "AMS",
+        "Bain Sector": "Automotive",
+        "Primary Sector": "Consumer Discretionary",
+        "Primary Industry": "Automobile Manufacturers",
+        "Revenue": 13630.95628,
+        "revenue_size": 4.134526324841194,
+        "gross_margin": 0.0815140872860316,
+        "ebitda_margin": 0.05972042850686922,
+        "operating_margin": 0.04404975466622214,
+        "research_and_development_intensity": 0.011069598265925917,
+        "depreciation_intensity": 0,
+        "accounts_receivable_days": 44.510502222812505,
+        "accounts_payable_days": 63.36565409041462,
+        "inventory_days": 35.58959560759034,
+        "revenue_growth_rate": 0.006997438941081402,
+        "leverage": 2.446424040492525
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.00009,
+      "similarity": 0.99991,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": "the Foundry agent returned no usable analysis"
+    },
+    {
+      "cap_id": "IQ810173",
+      "agent_recommended": false,
+      "name": "Kikkoman Corporation",
+      "ticker": "TSE:2801",
+      "company": {
+        "cap_id": "IQ810173",
+        "entity_key": "260408_Unlinked_CIQ Pull_APAC_v1|IQ810173",
+        "source_file": "260408_Unlinked_CIQ Pull_APAC_v1",
+        "Company Name": "Kikkoman Corporation",
+        "Exchange:Ticker": "TSE:2801",
+        "Year": "LTM22025",
+        "Region": "APAC",
+        "Exchange Country/Region": "Japan",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included",
+        "Bain Industry": "CP",
+        "Bain Sector": "Food",
+        "Primary Sector": "Consumer Staples",
+        "Primary Industry": "Packaged Foods and Meats",
+        "Revenue": 4734.48094,
+        "revenue_size": 3.6752723725155456,
+        "gross_margin": 0.33743312524561564,
+        "ebitda_margin": 0.14619614880105525,
+        "operating_margin": 0.10823028680309778,
+        "research_and_development_intensity": 0.007562989576635616,
+        "depreciation_intensity": 0.01612459548733551,
+        "accounts_receivable_days": 42.51629474296711,
+        "accounts_payable_days": 47.12289139328386,
+        "inventory_days": 81.50583500597709,
+        "revenue_growth_rate": 0.007150557392131329,
+        "leverage": -0.4550988923300828
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.000093,
+      "similarity": 0.999907,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ315117",
+      "agent_recommended": false,
+      "name": "WEC Energy Group, Inc.",
+      "ticker": "NYSE:WEC",
+      "company": {
+        "cap_id": "IQ315117",
+        "entity_key": "260408_Unlinked_CIQ Pull_AMER_v1|IQ315117",
+        "source_file": "260408_Unlinked_CIQ Pull_AMER_v1",
+        "Company Name": "WEC Energy Group, Inc.",
+        "Exchange:Ticker": "NYSE:WEC",
+        "Year": "LTM22025",
+        "Region": "N.America",
+        "Exchange Country/Region": "United States",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "ENR",
+        "Bain Sector": "Utilities & Renewables",
+        "Primary Sector": "Utilities",
+        "Primary Industry": "Multi-Utilities",
+        "Revenue": 9306.7,
+        "revenue_size": 3.9687957147246706,
+        "gross_margin": 0.43309658633027825,
+        "ebitda_margin": 0.4123266034147442,
+        "operating_margin": 0.2604682647984785,
+        "research_and_development_intensity": 0,
+        "depreciation_intensity": 0.1518583386162657,
+        "accounts_receivable_days": 58.687397251442505,
+        "accounts_payable_days": 56.48644806671721,
+        "inventory_days": 48.63438210765732,
+        "revenue_growth_rate": 0.006991111598761979,
+        "leverage": 5.352400062542346
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.000097,
+      "similarity": 0.999903,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ5505504",
+      "agent_recommended": false,
+      "name": "Grand Industrial Holding Co.,Ltd",
+      "ticker": "SZSE:000626",
+      "company": {
+        "cap_id": "IQ5505504",
+        "entity_key": "260408_Unlinked_CIQ Pull_APAC_v1|IQ5505504",
+        "source_file": "260408_Unlinked_CIQ Pull_APAC_v1",
+        "Company Name": "Grand Industrial Holding Co.,Ltd",
+        "Exchange:Ticker": "SZSE:000626",
+        "Year": "LTM22025",
+        "Region": "APAC",
+        "Exchange Country/Region": "China",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included",
+        "Bain Industry": "AMS",
+        "Bain Sector": "MPPM",
+        "Primary Sector": "Industrials",
+        "Primary Industry": "Trading Companies and Distributors",
+        "Revenue": 12065.62974,
+        "revenue_size": 4.081549993917388,
+        "gross_margin": 0.006567600009910413,
+        "ebitda_margin": -0.00009044782771529006,
+        "operating_margin": -0.0009990767377882424,
+        "research_and_development_intensity": 0.0002617940437479395,
+        "depreciation_intensity": 0,
+        "accounts_receivable_days": 4.20384119958914,
+        "accounts_payable_days": 14.759856353918261,
+        "inventory_days": 5.014765512115502,
+        "revenue_growth_rate": 0.006965565682267139,
+        "leverage": null
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.000128,
+      "similarity": 0.999872,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ312375",
+      "agent_recommended": false,
+      "name": "AB Volvo (publ)",
+      "ticker": "OM:VOLV B",
+      "company": {
+        "cap_id": "IQ312375",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ312375",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "AB Volvo (publ)",
+        "Exchange:Ticker": "OM:VOLV B",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "Sweden",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included",
+        "Bain Industry": "AMS",
+        "Bain Sector": "MPPM",
+        "Primary Sector": "Industrials",
+        "Primary Industry": "Construction Machinery and Heavy Transportation Equipment",
+        "Revenue": 42367.48349,
+        "revenue_size": 4.627032668889736,
+        "gross_margin": 0.24842175137648237,
+        "ebitda_margin": 0.12744768594232125,
+        "operating_margin": 0.11101107246811369,
+        "research_and_development_intensity": 0.07005163265598525,
+        "depreciation_intensity": 0,
+        "accounts_receivable_days": 23.67808582463438,
+        "accounts_payable_days": 70.12401225247066,
+        "inventory_days": 74.68433115752788,
+        "revenue_growth_rate": 0.007183433310251397,
+        "leverage": 3.3823422076132506
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.000132,
+      "similarity": 0.999868,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ9673133",
+      "agent_recommended": false,
+      "name": "NTPC Limited",
+      "ticker": "NSEI:NTPC",
+      "company": {
+        "cap_id": "IQ9673133",
+        "entity_key": "260408_Unlinked_CIQ Pull_APAC_v1|IQ9673133",
+        "source_file": "260408_Unlinked_CIQ Pull_APAC_v1",
+        "Company Name": "NTPC Limited",
+        "Exchange:Ticker": "NSEI:NTPC",
+        "Year": "LTM22025",
+        "Region": "APAC",
+        "Exchange Country/Region": "India",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included at EBIT Level",
+        "Bain Industry": "ENR",
+        "Bain Sector": "Utilities & Renewables",
+        "Primary Sector": "Utilities",
+        "Primary Industry": "Independent Power Producers and Energy Traders",
+        "Revenue": 22018.1772,
+        "revenue_size": 4.3427813625581315,
+        "gross_margin": 0.43074346590325374,
+        "ebitda_margin": 0.2904998593616551,
+        "operating_margin": 0.2003097086529034,
+        "research_and_development_intensity": 0.0006046622242644137,
+        "depreciation_intensity": 0.09267922732495767,
+        "accounts_receivable_days": 98.35964827960419,
+        "accounts_payable_days": 38.03389612868439,
+        "inventory_days": 63.80672459684917,
+        "revenue_growth_rate": 0.007206840502754552,
+        "leverage": 4.496273840456868
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.00016,
+      "similarity": 0.99984,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": null
+    },
+    {
+      "cap_id": "IQ24378138",
+      "agent_recommended": false,
+      "name": "bpost NV/SA",
+      "ticker": "ENXTBR:BPOST",
+      "company": {
+        "cap_id": "IQ24378138",
+        "entity_key": "260408_Unlinked_CIQ Pull_EMEA_v1|IQ24378138",
+        "source_file": "260408_Unlinked_CIQ Pull_EMEA_v1",
+        "Company Name": "bpost NV/SA",
+        "Exchange:Ticker": "ENXTBR:BPOST",
+        "Year": "LTM22025",
+        "Region": "EMEA",
+        "Exchange Country/Region": "Belgium",
+        "Company Type": "Public Company",
+        "Company Status": "Operating",
+        "Inclusion": "Included",
+        "Bain Industry": "AMS",
+        "Bain Sector": "ALT",
+        "Primary Sector": "Industrials",
+        "Primary Industry": "Air Freight and Logistics",
+        "Revenue": 4553.9,
+        "revenue_size": 3.658383489624529,
+        "gross_margin": 0.16159775137793975,
+        "ebitda_margin": 0.05601791870704232,
+        "operating_margin": 0.034366147697577905,
+        "research_and_development_intensity": 0.0032499615714003385,
+        "depreciation_intensity": 0.08851753442104571,
+        "accounts_receivable_days": 61.16328860976307,
+        "accounts_payable_days": 110.87663698271346,
+        "inventory_days": 3.183473022524882,
+        "revenue_growth_rate": 0.00725886182298674,
+        "leverage": 7.04625637005096
+      },
+      "found_as": null,
+      "evidence": null,
+      "sources": [],
+      "distance": 0.000222,
+      "similarity": 0.999778,
+      "shared_columns": 1,
+      "analysis": null,
+      "analysis_error": null
+    }
+  ],
+  "unresolved": [],
+  "agent_error": null,
+  "deterministic_error": null
+}

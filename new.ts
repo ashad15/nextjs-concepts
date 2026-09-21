@@ -1,3 +1,6 @@
+uv run oc-scaffold apply --repo ../.. --plan stream-plan.json --accept-plan sha256:75176177b219e45cbf0ab7d0c558c20ec69036efac281d6eff709e839a236f7b
+
+
 // ============================================================
 // 1. OBSERVABLE
 // ============================================================
